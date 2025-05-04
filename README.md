@@ -1,7 +1,5 @@
 # Addition Game - Mathematical Trick
 
-![Addition Game Preview]([https://i.imgur.com/placeholder.jpg](https://img.gamedistribution.com/349d329648794a768d89dcf8b93fabb2-512x512.jpeg))
-
 ## Overview
 
 The Addition Game is an interactive web application that demonstrates a fascinating mathematical trick. The game presents a seemingly magical ability to predict the final answer after only the first row of digits is entered.
