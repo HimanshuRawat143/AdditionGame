@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addition Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Mathematical Background Animation -->
+    <div class="math-background" id="math-background"></div>
+    
+    <div class="container">
+        <div class="game-header">
+            <h1>Addition Game</h1>
+            <p class="subtitle">A Mathematical Trick Game</p>
+        </div>
+
+        <div class="game-instructions">
+            <button id="instructions-btn"><i class="fas fa-question-circle"></i> How to Play</button>
+            <div id="instructions-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>How to Play</h2>
+                    <p>This game demonstrates a mathematical trick:</p>
+                    <ol>
+                        <li>Enter 5 digits in the first row</li>
+                        <li>Enter 5 digits in the second row</li>
+                        <li>The system will generate the third row</li>
+                        <li>Enter 5 digits in the fourth row</li>
+                        <li>The system will generate the fifth row</li>
+                        <li>The answer is calculated immediately after you enter the first row!</li>
+                    </ol>
+                    <p>Can you figure out the mathematical trick behind it?</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-board">
+            <div class="row user-row" id="row1">
+                <div class="row-label">Row 1:</div>
+                <div class="input-group">
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1">
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1">
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1">
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1">
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1">
+                </div>
+                <div class="row-status">Your Input</div>
+            </div>
+            
+            <div class="row user-row" id="row2">
+                <div class="row-label">Row 2:</div>
+                <div class="input-group">
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1" disabled>
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1" disabled>
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1" disabled>
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1" disabled>
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1" disabled>
+                </div>
+                <div class="row-status">Your Input</div>
+            </div>
+            
+            <div class="row system-row" id="row3">
+                <div class="row-label">Row 3:</div>
+                <div class="input-group">
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1" disabled readonly>
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1" disabled readonly>
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1" disabled readonly>
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1" disabled readonly>
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1" disabled readonly>
+                </div>
+                <div class="row-status">System Generated</div>
+            </div>
+            
+            <div class="row user-row" id="row4">
+                <div class="row-label">Row 4:</div>
+                <div class="input-group">
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1" disabled>
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1" disabled>
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1" disabled>
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1" disabled>
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1" disabled>
+                </div>
+                <div class="row-status">Your Input</div>
+            </div>
+            
+            <div class="row system-row" id="row5">
+                <div class="row-label">Row 5:</div>
+                <div class="input-group">
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1" disabled readonly>
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1" disabled readonly>
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1" disabled readonly>
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1" disabled readonly>
+                    <input type="number" min="0" max="9" class="digit-input" maxlength="1" disabled readonly>
+                </div>
+                <div class="row-status">System Generated</div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="row answer-row" id="answer-row">
+                <div class="row-label">Answer:</div>
+                <div class="input-group">
+                    <input type="number" min="0" max="9" class="digit-input answer-digit" maxlength="1" disabled readonly>
+                    <input type="number" min="0" max="9" class="digit-input answer-digit" maxlength="1" disabled readonly>
+                    <input type="number" min="0" max="9" class="digit-input answer-digit" maxlength="1" disabled readonly>
+                    <input type="number" min="0" max="9" class="digit-input answer-digit" maxlength="1" disabled readonly>
+                    <input type="number" min="0" max="9" class="digit-input answer-digit" maxlength="1" disabled readonly>
+                    <input type="number" min="0" max="9" class="digit-input answer-digit" maxlength="1" disabled readonly>
+                </div>
+                <div class="row-status">Magic Result!</div>
+            </div>
+        </div>
+
+        <div class="game-controls">
+            <button id="reset-btn">Reset Game</button>
+            <!-- <button id="reveal-trick-btn">Reveal the Trick</button> -->
+        </div>
+
+        <div id="trick-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>The Mathematical Trick Revealed!</h2>
+                <p>Here's how the trick works:</p>
+                <ol>
+                    <li>The answer is calculated immediately after you enter the first row</li>
+                    <li>To get the answer:
+                        <ul>
+                            <li>Take the digits from the first row as is</li>
+                            <li>Subtract 2 from the rightmost digit</li>
+                            <li>Add a new digit "2" at the leftmost position</li>
+                        </ul>
+                    </li>
+                    <li>For system-generated rows (rows 3 and 5):
+                        <ul>
+                            <li>Each digit + the corresponding digit in the previous row must sum to 9</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p>It's a clever mathematical trick that works every time!</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Created with ❤️ | Mathematical Trick Game</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/himanshurawat12" id="linkedin-link" target="_blank" title="Connect with me on LinkedIn">
+                <i class="fab fa-linkedin"></i> Connect with me
+            </a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
