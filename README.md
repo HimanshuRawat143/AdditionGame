@@ -1,6 +1,6 @@
 # Addition Game - Mathematical Trick
 
-![Addition Game Preview](https://i.imgur.com/placeholder.jpg)
+![Addition Game Preview]([https://i.imgur.com/placeholder.jpg](https://img.gamedistribution.com/349d329648794a768d89dcf8b93fabb2-512x512.jpeg))
 
 ## Overview
 
