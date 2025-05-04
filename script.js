@@ -128,16 +128,21 @@ document.addEventListener('DOMContentLoaded', function() {
         instructionsModal.style.display = 'block';
     });
     
-    // Reveal trick button event listener
-    revealTrickBtn.addEventListener('click', function() {
-        trickModal.style.display = 'block';
-    });
+    // Reveal trick button event listener - only add if button exists
+    if (revealTrickBtn) {
+        revealTrickBtn.addEventListener('click', function() {
+            trickModal.style.display = 'block';
+        });
+    }
     
     // Close button event listeners
     closeButtons.forEach(button => {
         button.addEventListener('click', function() {
-            instructionsModal.style.display = 'none';
-            trickModal.style.display = 'none';
+            // Find the closest parent modal and hide it
+            const modal = this.closest('.modal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
         });
     });
     
