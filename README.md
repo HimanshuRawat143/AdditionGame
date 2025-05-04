@@ -75,10 +75,6 @@ Potential future improvements:
 Feel free to connect with me on LinkedIn if you have any questions or suggestions:
 - [LinkedIn Profile](https://www.linkedin.com/in/himanshurawat12)
 
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
 ---
 
 Created with ❤️ | Mathematical Trick Game
